@@ -13,7 +13,7 @@ import {
     Toolbar
 } from "@material-ui/core";
 import {Search} from "@material-ui/icons";
-import {Component, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import CardItem from "./CardItem";
 import moment from "moment";
