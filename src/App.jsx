@@ -1,9 +1,28 @@
-import {Box, Card, CardContent, FormControl, FormControlLabel, FormLabel, Grid, InputAdornment, Radio, RadioGroup, SvgIcon, TextField} from "@material-ui/core";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+    AppBar,
+    Box,
+    FormControl,
+    Grid,
+    InputAdornment,
+    InputLabel,
+    MenuItem,
+    Select,
+    SvgIcon,
+    TextField,
+    Toolbar
+} from "@material-ui/core";
 import {Search} from "@material-ui/icons";
-import {useEffect, useState} from "react";
+import {Component, useEffect, useState} from "react";
 import axios from "axios";
 import CardItem from "./CardItem";
 import moment from "moment";
+
+class MailIcon extends Component {
+    render() {
+        return null;
+    }
+}
 
 export default function App() {
 
@@ -73,11 +92,10 @@ export default function App() {
 
     return (
         <Box>
-            <Card>
-                <CardContent>
+            <AppBar position="static" color={"dark"}>
+                <Toolbar>
                     <Grid container>
                         <TextField
-                            fullWidth
                             placeholder="Rocket name"
                             variant="outlined"
                             value={rocketName}
@@ -96,46 +114,58 @@ export default function App() {
                     <Grid container>
                         <Grid item md={4}>
                             <FormControl>
-                                <FormLabel>Launch Date</FormLabel>
-                                <RadioGroup value={launchDate}
-                                            onChange={(event) => setLaunchDate(parseInt(event.target.value))}>
-                                    <FormControlLabel value={0} control={<Radio/>} label="All"/>
-                                    <FormControlLabel value={1} control={<Radio/>} label="Last Week"/>
-                                    <FormControlLabel value={2} control={<Radio/>} label="Last Month"/>
-                                    <FormControlLabel value={3} control={<Radio/>} label="Last Year"/>
-                                </RadioGroup>
+                                <InputLabel>Launch Date</InputLabel>
+                                <Select
+                                    value={launchDate}
+                                    onChange={(event) => setLaunchDate(parseInt(event.target.value))}
+                                >
+                                    <MenuItem value={0}>-</MenuItem>
+                                    <MenuItem value={1}>Last Week</MenuItem>
+                                    <MenuItem value={2}>Last Month</MenuItem>
+                                    <MenuItem value={3}>Last Year</MenuItem>
+                                </Select>
                             </FormControl>
                         </Grid>
                         <Grid item md={4}>
                             <FormControl>
-                                <FormLabel>Launch Status</FormLabel>
-                                <RadioGroup value={launchStatus}
-                                            onChange={(event) => setLaunchStatus(parseInt(event.target.value))}>
-                                    <FormControlLabel value={0} control={<Radio/>} label="All"/>
-                                    <FormControlLabel value={1} control={<Radio/>} label="Failure"/>
-                                    <FormControlLabel value={2} control={<Radio/>} label="Success"/>
-                                </RadioGroup>
+                                <InputLabel>Launch Status</InputLabel>
+                                <Select
+                                    value={launchStatus}
+                                    onChange={(event) => setLaunchStatus(parseInt(event.target.value))}
+                                >
+                                    <MenuItem value={0}>-</MenuItem>
+                                    <MenuItem value={1}>Failure</MenuItem>
+                                    <MenuItem value={2}>Success</MenuItem>
+                                </Select>
                             </FormControl>
                         </Grid>
                         <Grid item md={4}>
                             <FormControl>
-                                <FormLabel>Upcoming</FormLabel>
-                                <RadioGroup value={upcoming}
-                                            onChange={(event) => setUpcoming(parseInt(event.target.value))}>
-                                    <FormControlLabel value={0} control={<Radio/>} label="All"/>
-                                    <FormControlLabel value={1} control={<Radio/>} label="Yes"/>
-                                    <FormControlLabel value={2} control={<Radio/>} label="No"/>
-                                </RadioGroup>
+                                <InputLabel>Upcoming</InputLabel>
+                                <Select
+                                    value={upcoming}
+                                    onChange={(event) => setUpcoming(parseInt(event.target.value))}
+                                >
+                                    <MenuItem value={0}>-</MenuItem>
+                                    <MenuItem value={1}>Yes</MenuItem>
+                                    <MenuItem value={2}>No</MenuItem>
+                                </Select>
                             </FormControl>
                         </Grid>
                     </Grid>
-                </CardContent>
-            </Card>
-            {
-                launches.map((launch, index) => (
-                    <CardItem key={index} launch={launch}/>
-                ))
-            }
+                </Toolbar>
+            </AppBar>
+            <Grid container
+                  direction="row"
+                  alignContent={"center"}
+            >
+
+                {
+                    launches.map((launch, index) => (
+                        <CardItem key={index} launch={launch}/>
+                    ))
+                }
+            </Grid>
         </Box>
     );
 }
