@@ -60,7 +60,7 @@ export default function App() {
 
         }
 
-        axios.get("/launches", {
+        axios.get("https://api.spacexdata.com/v3/launches", {
             params: {
                 rocket_name: rocketName,
                 start: start,
