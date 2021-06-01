@@ -18,12 +18,6 @@ import axios from "axios";
 import CardItem from "./CardItem";
 import moment from "moment";
 
-class MailIcon extends Component {
-    render() {
-        return null;
-    }
-}
-
 export default function App() {
 
     const [launches, setLaunches] = useState([]);
