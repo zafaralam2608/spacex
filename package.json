@@ -21,6 +21,9 @@
     "eject": "react-scripts eject"
   },
   "proxy": "https://api.spacexdata.com/v3/launches",
+  "engines": {
+    "node": "15.x"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
