@@ -21,13 +21,13 @@ import moment from "moment";
 export default function App() {
 
     const [launches, setLaunches] = useState([]);
-    const [rocketName, setRocketName] = useState("");
+    const [rocketName, setRocketName] = useState(null);
     const [launchDate, setLaunchDate] = useState(0);
     const [launchStatus, setLaunchStatus] = useState(0);
     const [upcoming, setUpcoming] = useState(0);
 
     useEffect(() => {
-        let start = "", end = "", launch_success = "";
+        let start = null, end = null, launch_success = null;
         switch (launchDate) {
             case 0:
                 break;
