@@ -1,8 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import {
-  AppBar, Box, FormControl, Grid, InputAdornment, InputLabel, MenuItem, Select, SvgIcon, TextField,
-  Toolbar,
+  Box, FormControl, Grid, InputAdornment, InputLabel, MenuItem, Select, SvgIcon, TextField,
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import axios from 'axios';
@@ -74,69 +72,65 @@ export default function App() {
 
   return (
     <Box>
-      <AppBar position="static" color="dark">
-        <Toolbar>
-          <Grid container>
-            <TextField
-              placeholder="Rocket name"
-              variant="outlined"
-              value={rocketName}
-              onChange={(event) => setRocketName(event.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SvgIcon fontSize="small" color="action">
-                      <Search />
-                    </SvgIcon>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid container>
-            <Grid item md={4}>
-              <FormControl>
-                <InputLabel>Launch Date</InputLabel>
-                <Select
-                  value={launchDate}
-                  onChange={(event) => setLaunchDate(parseInt(event.target.value, 10))}
-                >
-                  <MenuItem value={0}>-</MenuItem>
-                  <MenuItem value={1}>Last Week</MenuItem>
-                  <MenuItem value={2}>Last Month</MenuItem>
-                  <MenuItem value={3}>Last Year</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item md={4}>
-              <FormControl>
-                <InputLabel>Launch Status</InputLabel>
-                <Select
-                  value={launchStatus}
-                  onChange={(event) => setLaunchStatus(parseInt(event.target.value, 10))}
-                >
-                  <MenuItem value={0}>-</MenuItem>
-                  <MenuItem value={1}>Failure</MenuItem>
-                  <MenuItem value={2}>Success</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item md={4}>
-              <FormControl>
-                <InputLabel>Upcoming</InputLabel>
-                <Select
-                  value={upcoming}
-                  onChange={(event) => setUpcoming(parseInt(event.target.value, 10))}
-                >
-                  <MenuItem value={0}>-</MenuItem>
-                  <MenuItem value={1}>Yes</MenuItem>
-                  <MenuItem value={2}>No</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+      <Grid container>
+        <Grid item lg={3} md={6} xs={12}>
+          <TextField
+            placeholder="Rocket name"
+            variant="outlined"
+            value={rocketName}
+            onChange={(event) => setRocketName(event.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SvgIcon fontSize="small" color="action">
+                    <Search />
+                  </SvgIcon>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
+        <Grid itemlg={3} md={6} xs={12}>
+          <FormControl>
+            <InputLabel>Launch Date</InputLabel>
+            <Select
+              value={launchDate}
+              onChange={(event) => setLaunchDate(parseInt(event.target.value, 10))}
+            >
+              <MenuItem value={0}>-</MenuItem>
+              <MenuItem value={1}>Last Week</MenuItem>
+              <MenuItem value={2}>Last Month</MenuItem>
+              <MenuItem value={3}>Last Year</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item lg={3} md={6} xs={12}>
+          <FormControl>
+            <InputLabel>Launch Status</InputLabel>
+            <Select
+              value={launchStatus}
+              onChange={(event) => setLaunchStatus(parseInt(event.target.value, 10))}
+            >
+              <MenuItem value={0}>-</MenuItem>
+              <MenuItem value={1}>Failure</MenuItem>
+              <MenuItem value={2}>Success</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item lg={3} md={6} xs={12}>
+          <FormControl>
+            <InputLabel>Upcoming</InputLabel>
+            <Select
+              value={upcoming}
+              onChange={(event) => setUpcoming(parseInt(event.target.value, 10))}
+            >
+              <MenuItem value={0}>-</MenuItem>
+              <MenuItem value={1}>Yes</MenuItem>
+              <MenuItem value={2}>No</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
       <Grid
         container
         direction="row"
