@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.js": "/spacex/static/js/main.13c3efa8.js",
-    "index.html": "/spacex/index.html",
-    "main.13c3efa8.js.map": "/spacex/static/js/main.13c3efa8.js.map"
+    "main.js": "/spacex/static/js/main.4400a8ba.js",
+    "index.html": "/spacex/index.html"
   },
   "entrypoints": [
-    "static/js/main.13c3efa8.js"
+    "static/js/main.4400a8ba.js"
   ]
 }
