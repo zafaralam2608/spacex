@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Box, FormControl, Grid, InputAdornment, InputLabel, MenuItem, Select, SvgIcon, TextField,
+  Box, Divider, FormControl, FormHelperText, Grid, InputAdornment, MenuItem, Select, SvgIcon,
+  TextField,
 } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import axios from 'axios';
@@ -9,7 +10,7 @@ import CardItem from './CardItem';
 
 export default function App() {
   const [launches, setLaunches] = useState([]);
-  const [rocketName, setRocketName] = useState(null);
+  const [rocketName, setRocketName] = useState('');
   const [launchDate, setLaunchDate] = useState(0);
   const [launchStatus, setLaunchStatus] = useState(0);
   const [upcoming, setUpcoming] = useState(0);
@@ -72,8 +73,8 @@ export default function App() {
 
   return (
     <Box>
-      <Grid container>
-        <Grid item lg={3} md={6} xs={12}>
+      <Grid container justifyContent="space-evenly">
+        <Grid item>
           <TextField
             placeholder="Rocket name"
             variant="outlined"
@@ -90,9 +91,8 @@ export default function App() {
             }}
           />
         </Grid>
-        <Grid itemlg={3} md={6} xs={12}>
+        <Grid item>
           <FormControl>
-            <InputLabel>Launch Date</InputLabel>
             <Select
               value={launchDate}
               onChange={(event) => setLaunchDate(parseInt(event.target.value, 10))}
@@ -102,11 +102,11 @@ export default function App() {
               <MenuItem value={2}>Last Month</MenuItem>
               <MenuItem value={3}>Last Year</MenuItem>
             </Select>
+            <FormHelperText>Launch Date</FormHelperText>
           </FormControl>
         </Grid>
-        <Grid item lg={3} md={6} xs={12}>
+        <Grid item>
           <FormControl>
-            <InputLabel>Launch Status</InputLabel>
             <Select
               value={launchStatus}
               onChange={(event) => setLaunchStatus(parseInt(event.target.value, 10))}
@@ -115,11 +115,11 @@ export default function App() {
               <MenuItem value={1}>Failure</MenuItem>
               <MenuItem value={2}>Success</MenuItem>
             </Select>
+            <FormHelperText>Launch Status</FormHelperText>
           </FormControl>
         </Grid>
-        <Grid item lg={3} md={6} xs={12}>
+        <Grid item>
           <FormControl>
-            <InputLabel>Upcoming</InputLabel>
             <Select
               value={upcoming}
               onChange={(event) => setUpcoming(parseInt(event.target.value, 10))}
@@ -128,14 +128,12 @@ export default function App() {
               <MenuItem value={1}>Yes</MenuItem>
               <MenuItem value={2}>No</MenuItem>
             </Select>
+            <FormHelperText>Upcoming</FormHelperText>
           </FormControl>
         </Grid>
       </Grid>
-      <Grid
-        container
-        direction="row"
-        alignContent="center"
-      >
+      <Divider sx={{ m: '10px' }} />
+      <Grid container justifyContent="center">
         {
           launches.map((launch) => (
             <CardItem key={launch.flight_number} launch={launch} />
