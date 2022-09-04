@@ -1,14 +1,24 @@
+# SpaceX
+[View Demo](https://zafaralam2608.github.io/spacex/)
+
+## About the project
+
+### Description
 Web page to display SpaceX launches based on rocket name and other filters.
 
-Tech used:
-1. NodeJS
-2. ReactJS
-3. Material-UI
-4. React-bootstrap
-5. Redux
+### Built with
+* [React.js](https://reactjs.org/)
+* [Material UI](https://mui.com/material-ui/getting-started/overview/)
+* [Axios](https://axios-http.com/docs/intro)
 
-To start the app use command:
+### Code check and styling
+[ES Lint](https://eslint.org/)
+
+## Installation
+Use the below commands to launch the app
+```
+git clone https://github.com/zafaralam2608/spacex.git
+cd spacex
+npm install
 npm start
-
-To build production ready files use command:
-npm build
+```
